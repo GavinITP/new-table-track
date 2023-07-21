@@ -16,15 +16,21 @@ const RootLayout = () => {
 
   return (
     <>
-      <Box position="absolute" top="20%" right="0%">
+      <Box position="fixed" zIndex="999" bottom="12%" right="2%">
         {isShow && <CrmChatBot />}
       </Box>
 
       <IconButton
-        position="absolute"
-        top="10%"
-        right="0%"
-        icon={<Icon as={BsFillChatDotsFill} />}
+        position="fixed"
+        borderRadius="full"
+        zIndex="999"
+        bottom="2%"
+        right="2%"
+        boxSize={16}
+        variant="solid"
+        bgColor="pink.300"
+        _hover={{ bgColor: "pink.200" }}
+        icon={<Icon as={BsFillChatDotsFill} boxSize={6} />}
         aria-label={""}
         onClick={() => setIsShow((prev) => !prev)}
       />
