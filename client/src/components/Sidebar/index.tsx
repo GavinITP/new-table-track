@@ -1,7 +1,7 @@
 import { Box, Flex, Image, List, Text } from "@chakra-ui/react";
-import { MdHome, MdPeople, MdToday } from "react-icons/md";
+import { MdHome, MdManageSearch, MdPeople, MdToday } from "react-icons/md";
 import { AiFillPieChart, AiFillShopping } from "react-icons/ai";
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaQrcode } from "react-icons/fa";
 import SidebarItem from "./SidebarItem";
 import { BsArrowLeftRight, BsFillSearchHeartFill } from "react-icons/bs";
 import logo from "../../assets/logo.svg";
@@ -78,6 +78,23 @@ const Sidebar = () => {
                 icon={AiFillPieChart}
                 title="Breakdown"
                 link="/sales/breakdown"
+              />
+            </List>
+          </Box>
+          <Box>
+            <Text mb={4} fontWeight="bold" fontSize="sm">
+              Management
+            </Text>
+            <List spacing={4}>
+              <SidebarItem
+                icon={MdManageSearch}
+                title="Stocks"
+                link="/management/stocks"
+              />
+              <SidebarItem
+                icon={FaQrcode}
+                title="QR generator"
+                link="/management/qr"
               />
             </List>
           </Box>

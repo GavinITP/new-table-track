@@ -14,6 +14,8 @@ import Overview from "./pages/sales/overview";
 import Daily from "./pages/sales/daily";
 import Monthly from "./pages/sales/monthly";
 import Breakdown from "./pages/sales/breakdown";
+import Management from "./pages/management/stocks";
+import QrGenerator from "./pages/management/QrGenerator";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +34,11 @@ const router = createBrowserRouter(
         <Route path="daily" element={<Daily />} />
         <Route path="monthly" element={<Monthly />} />
         <Route path="breakdown" element={<Breakdown />} />
+      </Route>
+
+      <Route path="management">
+        <Route path="stocks" element={<Management />} />
+        <Route path="qr" element={<QrGenerator />} />
       </Route>
     </Route>
   )
