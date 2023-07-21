@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useGetTransactionsQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
+import { format } from "date-fns";
 
 import { BiSolidFileExport } from "react-icons/bi";
 
@@ -54,7 +55,12 @@ const Customers = () => {
               {data.map((transaction: any) => (
                 <Tr>
                   <Td>{transaction.userId}</Td>
-                  <Td>{transaction.createdAt}</Td>
+                  <Td>
+                    {format(
+                      new Date(transaction.createdAt),
+                      "dd/MM/yyyy HH:mm:ss"
+                    )}
+                  </Td>
                   <Td>{transaction.products.length}</Td>
                   <Td>{transaction.cost} Baht</Td>
                 </Tr>
