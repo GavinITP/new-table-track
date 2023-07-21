@@ -1,11 +1,11 @@
 import { useMemo } from "react";
-import { Box, Flex, Icon, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
 
 const Monthly = () => {
-  const { data, isLoading } = useGetSalesQuery();
+  const { data, isLoading } = useGetSalesQuery("");
 
   const months = [
     "January",

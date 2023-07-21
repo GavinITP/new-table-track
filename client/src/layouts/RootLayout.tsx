@@ -4,19 +4,17 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { useState } from "react";
 
-import { useSelector } from "react-redux";
 import CrmChatBot from "../components/CrmChatBot";
 import { BsFillChatDotsFill } from "react-icons/bs";
 
 const RootLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
-  const userId = useSelector((state) => state.global.userId);
 
   const [isShow, setIsShow] = useState(false);
 
   return (
     <>
-      <Box position="fixed" zIndex="999" bottom="10%" right="2%">
+      <Box position="fixed" zIndex="999" bottom="12%" right="2%" shadow="xl">
         {isShow && <CrmChatBot />}
       </Box>
 
@@ -26,12 +24,13 @@ const RootLayout = () => {
         zIndex="999"
         bottom="2%"
         right="2%"
+        shadow="xl"
         boxSize={16}
         variant="solid"
         bgColor="pink.300"
         _hover={{ bgColor: "pink.200" }}
         icon={<Icon as={BsFillChatDotsFill} boxSize={6} />}
-        aria-label={""}
+        aria-label="chat bot"
         onClick={() => setIsShow((prev) => !prev)}
       />
 

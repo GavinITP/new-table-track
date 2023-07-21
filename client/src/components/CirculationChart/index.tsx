@@ -22,32 +22,12 @@ const CirculationChart = () => {
         xScale={{ type: "point" }}
         yScale={{
           type: "linear",
-          min: "3000",
-          max: "12000",
+          min: 3000,
+          max: 12000,
           stacked: true,
           reverse: false,
         }}
         curve="natural"
-        axisTop={null}
-        axisRight={null}
-        axisBottom={{
-          orient: "bottom",
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "Days",
-          legendOffset: 36,
-          legendPosition: "middle",
-        }}
-        axisLeft={{
-          orient: "left",
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: "Circulation",
-          legendOffset: -40,
-          legendPosition: "middle",
-        }}
         colors={{ scheme: "category10" }}
         enablePoints={true}
         enableGridX

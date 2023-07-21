@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Box, Flex, Icon, Text } from "@chakra-ui/react";
-import { ResponsiveLine } from "@nivo/line";
+import { ResponsiveLine, Serie } from "@nivo/line";
 import { useGetSalesQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
 import DatePicker from "react-datepicker";
@@ -11,22 +11,7 @@ const Daily = () => {
   const [startDate, setStartDate] = useState(new Date("2021-02-01"));
   const [endDate, setEndDate] = useState(new Date("2021-03-01"));
 
-  const { data, isLoading } = useGetSalesQuery();
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const { data, isLoading } = useGetSalesQuery("");
 
   const [formattedData] = useMemo(() => {
     if (!data) return [];
@@ -35,31 +20,33 @@ const Daily = () => {
     const totalSalesLine = {
       id: "totalSales",
       color: "#132423",
-      data: [],
+      data: [] as { x: string; y: number }[],
     };
     const totalUnitsLine = {
       id: "totalUnits",
       color: "#231234",
-      data: [],
+      data: [] as { x: string; y: number }[],
     };
 
-    Object.values(dailyData).forEach(({ date, totalSales, totalUnits }) => {
-      const dateFormatted = new Date(date);
-      if (dateFormatted >= startDate && dateFormatted <= endDate) {
-        const splitDate = date.substring(date.indexOf("-") + 1);
+    Object.values(dailyData).forEach(
+      ({ date, totalSales, totalUnits }: any) => {
+        const dateFormatted = new Date(date);
+        if (dateFormatted >= startDate && dateFormatted <= endDate) {
+          const splitDate = date.substring(date.indexOf("-") + 1);
 
-        totalSalesLine.data = [
-          ...totalSalesLine.data,
-          { x: splitDate, y: totalSales },
-        ];
-        totalUnitsLine.data = [
-          ...totalUnitsLine.data,
-          { x: splitDate, y: totalUnits },
-        ];
+          totalSalesLine.data = [
+            ...totalSalesLine.data,
+            { x: splitDate, y: totalSales },
+          ];
+          totalUnitsLine.data = [
+            ...totalUnitsLine.data,
+            { x: splitDate, y: totalUnits },
+          ];
+        }
       }
-    });
+    );
 
-    const formattedData = [totalSalesLine, totalUnitsLine];
+    const formattedData: Serie[] = [totalSalesLine, totalUnitsLine];
     return [formattedData];
   }, [data, startDate, endDate]);
 
@@ -84,7 +71,7 @@ const Daily = () => {
             <DatePicker
               dateFormat="dd/MM/yyyy"
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              onChange={(date) => setStartDate(date || new Date())}
               selectsStart
               startDate={startDate}
               endDate={endDate}
@@ -106,7 +93,7 @@ const Daily = () => {
             <DatePicker
               dateFormat="dd/MM/yyyy"
               selected={endDate}
-              onChange={(date) => setEndDate(date)}
+              onChange={(date) => setEndDate(date || new Date())}
               selectsEnd
               startDate={startDate}
               endDate={endDate}
@@ -127,11 +114,10 @@ const Daily = () => {
 
       <Box h="500px">
         <ResponsiveLine
-          data={formattedData}
+          data={formattedData || []}
           margin={{ top: 20, right: 60, bottom: 50, left: 80 }}
           xScale={{
             type: "point",
-            values: months,
           }}
           yScale={{
             type: "linear",

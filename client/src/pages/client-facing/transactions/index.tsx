@@ -9,9 +9,6 @@ import {
   Box,
   Text,
   Button,
-  Menu,
-  MenuItem,
-  MenuList,
   Icon,
 } from "@chakra-ui/react";
 import { useGetTransactionsQuery } from "../../../state/api";
@@ -20,7 +17,7 @@ import PageHeader from "../../../components/PageHeader";
 import { BiSolidFileExport } from "react-icons/bi";
 
 const Customers = () => {
-  const { data, isLoading } = useGetTransactionsQuery();
+  const { data, isLoading } = useGetTransactionsQuery("");
 
   console.log(data);
 

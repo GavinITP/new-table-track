@@ -9,10 +9,6 @@ import {
   Box,
   Text,
   Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Icon,
 } from "@chakra-ui/react";
 import { useGetCustomersQuery } from "../../../state/api";
@@ -21,7 +17,7 @@ import { AiFillPlusCircle } from "react-icons/ai";
 import { BiSolidFileExport } from "react-icons/bi";
 
 const Customers = () => {
-  const { data, isLoading } = useGetCustomersQuery();
+  const { data, isLoading } = useGetCustomersQuery("");
 
   return (
     <Box>

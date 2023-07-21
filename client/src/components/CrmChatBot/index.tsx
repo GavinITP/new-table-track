@@ -1,7 +1,7 @@
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 
-const RestaurantChatbot = () => {
+const CrmChatbot = () => {
   const theme = {
     background: "#f5f8fb",
     fontFamily: "Helvetica Neue",
@@ -75,9 +75,9 @@ const RestaurantChatbot = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ChatBot steps={steps} recognitionEnable={true} />;
+      <ChatBot steps={steps} recognitionEnable={true} />
     </ThemeProvider>
   );
 };
 
-export default RestaurantChatbot;
+export default CrmChatbot;

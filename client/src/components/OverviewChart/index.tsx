@@ -3,71 +3,53 @@ import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../state/api";
 import { Box } from "@chakra-ui/react";
 
-const OverviewChart = ({ isDashboard = false, view }) => {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+interface Serie {
+  id: string;
+  color: string;
+  data: {
+    x: string;
+    y: number;
+  }[];
+}
 
-  const { data, isLoading } = useGetSalesQuery();
-
+const OverviewChart = ({ view }: { view: string }) => {
+  const { data, isLoading } = useGetSalesQuery("");
   const [totalSalesLine, totalUnitsLine] = useMemo(() => {
-    if (!data) return [];
+    if (!data) return [[], []];
 
     const { monthlyData } = data;
-    const totalSalesLine = {
+
+    const totalSalesLine: Serie = {
       id: "totalSales",
       color: "#013245",
-      data: [],
+      data: Object.values(monthlyData).map((item) => ({
+        x: (item as { month: string; totalSales: number }).month,
+        y: (item as { month: string; totalSales: number }).totalSales,
+      })),
     };
-    const totalUnitsLine = {
+
+    const totalUnitsLine: Serie = {
       id: "totalUnits",
       color: "#845932",
-      data: [],
+      data: Object.values(monthlyData).map((item) => ({
+        x: (item as { month: string; totalUnits: number }).month,
+        y: (item as { month: string; totalUnits: number }).totalUnits,
+      })),
     };
 
-    Object.values(monthlyData).reduce(
-      (acc, { month, totalSales, totalUnits }) => {
-        const curSales = acc.sales + totalSales;
-        const curUnits = acc.units + totalUnits;
-
-        totalSalesLine.data = [
-          ...totalSalesLine.data,
-          { x: month, y: curSales },
-        ];
-        totalUnitsLine.data = [
-          ...totalUnitsLine.data,
-          { x: month, y: curUnits },
-        ];
-
-        return { sales: curSales, units: curUnits };
-      },
-      { sales: 0, units: 0 }
-    );
-
     return [[totalSalesLine], [totalUnitsLine]];
-  }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [data]);
 
   if (!data || isLoading) return "Loading...";
 
   return (
     <Box h="500px">
       <ResponsiveLine
+        animate={true}
         data={view === "sales" ? totalSalesLine : totalUnitsLine}
         margin={{ top: 50, right: 60, bottom: 50, left: 80 }}
         xScale={{
           type: "point",
-          values: months,
         }}
         yScale={{
           type: "linear",

@@ -1,11 +1,11 @@
-import { Box, Flex, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import PageHeader from "../../components/PageHeader";
 import StatCard from "../../components/StatCard";
-import OverviewChart from "../../components/OverviewChart";
+
 import CirculationChart from "../../components/CirculationChart";
-import CrmChatBot from "../../components/CrmChatBot";
+
 import IncomeSourcesChart from "../../components/IncomeSourcesChart";
-import ProductChart from "../../components/ProductChart";
+
 import SalesProductsChart from "../../components/SalesProductsChart";
 
 const Dashboard = () => {

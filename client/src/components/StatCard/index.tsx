@@ -4,7 +4,6 @@ import {
   StatHelpText,
   StatLabel,
   StatNumber,
-  Text,
 } from "@chakra-ui/react";
 
 interface Stat {

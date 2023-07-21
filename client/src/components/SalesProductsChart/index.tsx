@@ -1,4 +1,3 @@
-import React from "react";
 import { ResponsiveBar } from "@nivo/bar";
 import { Box } from "@chakra-ui/react";
 
