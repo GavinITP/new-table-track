@@ -16,7 +16,7 @@ const RootLayout = () => {
 
   return (
     <>
-      <Box position="fixed" zIndex="999" bottom="12%" right="2%">
+      <Box position="fixed" zIndex="999" bottom="10%" right="2%">
         {isShow && <CrmChatBot />}
       </Box>
 

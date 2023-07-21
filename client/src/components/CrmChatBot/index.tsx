@@ -1,6 +1,19 @@
 import ChatBot from "react-simple-chatbot";
+import { ThemeProvider } from "styled-components";
 
 const RestaurantChatbot = () => {
+  const theme = {
+    background: "#f5f8fb",
+    fontFamily: "Helvetica Neue",
+    headerBgColor: "#D53F8C",
+    headerFontColor: "#fff",
+    headerFontSize: "1.2rem",
+    botBubbleColor: "#D53F8C",
+    botFontColor: "#fff",
+    userBubbleColor: "#fff",
+    userFontColor: "#4a4a4a",
+  };
+
   const steps = [
     {
       id: "1",
@@ -60,7 +73,11 @@ const RestaurantChatbot = () => {
     },
   ];
 
-  return <ChatBot steps={steps} />;
+  return (
+    <ThemeProvider theme={theme}>
+      <ChatBot steps={steps} recognitionEnable={true} />;
+    </ThemeProvider>
+  );
 };
 
 export default RestaurantChatbot;
