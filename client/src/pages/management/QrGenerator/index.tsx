@@ -1,6 +1,7 @@
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
 import PageHeader from "../../../components/PageHeader";
 import FeatureSection from "../../../components/FeatureSection";
+import qrImg from "../../../assets/img/qr-explain.png";
 
 const QrGenerator = () => {
   return (
@@ -20,20 +21,18 @@ const QrGenerator = () => {
           How does it work?
         </Heading>
 
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque culpa
-          ipsam facilis deleniti obcaecati? Ad sequi dolore iure modi
-          consectetur consequuntur, velit totam tempore nihil, culpa obcaecati
-          vero. Repellat cum officia reiciendis vitae eius perferendis ipsam
-          corporis rem, delectus ex voluptates provident inventore consequatur
-          minus culpa. Quod eaque eius aut ipsam, quae error minus architecto
-          eos eveniet voluptas corrupti dolores sint voluptate tempore! Sequi
-          doloribus atque, modi iusto quas minus quidem id voluptate nobis
-          laboriosam vel hic reprehenderit illum numquam dolor eos non tempora!
-          Corporis, fuga delectus libero asperiores debitis molestiae
-          necessitatibus aliquam? Perspiciatis eos modi assumenda ullam,
-          temporibus iure?
-        </Text>
+        <Image
+          src={qrImg}
+          maxH="500px"
+          mx="auto"
+          borderRadius="2xl"
+          mt={6}
+          shadow="xl"
+          transition="transform 0.2s ease-in-out" // Add a transition for smooth scaling
+          _hover={{
+            transform: "scale(1.02)", // Apply scale on hover
+          }}
+        />
       </Box>
 
       <Box mt={20}>
