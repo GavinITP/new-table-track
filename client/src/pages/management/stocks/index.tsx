@@ -244,7 +244,7 @@ const Stocks = () => {
 
               <Box>
                 <FormLabel>Price (THB)</FormLabel>
-                <Input id="username" placeholder="Please enter user name" />
+                <Input id="username" placeholder="Ex. 5000, 1000, ..." />
               </Box>
 
               <Box>

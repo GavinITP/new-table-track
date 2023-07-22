@@ -9,7 +9,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <Box position="fixed">
+    <Box position="fixed" overflowY="scroll" top={0} bottom={0}>
       <Flex
         flexDirection="column"
         minH="100vh"

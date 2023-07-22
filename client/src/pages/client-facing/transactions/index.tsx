@@ -71,7 +71,7 @@ const Customers = () => {
         />
       ) : (
         <TableContainer borderRadius="xl" shadow="xl">
-          <Table variant="simple" colorScheme="gray">
+          <Table variant="striped" colorScheme="gray">
             <Thead>
               <Tr bgColor="pink.500">
                 <Th color="white">User ID.</Th>
@@ -96,7 +96,9 @@ const Customers = () => {
 
                       <Popover>
                         <PopoverTrigger>
-                          <Tag ml={2}>View history</Tag>
+                          <Tag ml={2} bgColor="green.50">
+                            View history
+                          </Tag>
                         </PopoverTrigger>
                         <PopoverContent>
                           <PopoverArrow />
