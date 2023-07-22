@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import { AiFillEdit, AiFillLike, AiFillDislike } from "react-icons/ai";
+import placeholderImg from "../../assets/img/300x200.svg";
 
 interface ProductCard {
   name: string;
@@ -42,6 +43,7 @@ const ProductCard = ({
       _hover={{
         transform: "scale(1.03)",
       }}
+      minH="520px"
     >
       <CardHeader>
         <Badge colorScheme="gray" mb={4}>
@@ -55,7 +57,19 @@ const ProductCard = ({
 
       <CardBody py={0}>
         <Stack divider={<StackDivider />} spacing="4">
-          <Image src={imgUrl || "https://placehold.co/600x400"} />
+          <Box
+            height={{ base: "300px", lg: "200px", xl: "150px" }}
+            width="100%"
+          >
+            <Image
+              src={imgUrl || placeholderImg}
+              fallbackSrc={placeholderImg}
+              loading="lazy"
+              objectFit="cover"
+              height="100%"
+              width="100%"
+            />
+          </Box>
 
           <Box>
             <Flex alignItems="center" gap={2}>

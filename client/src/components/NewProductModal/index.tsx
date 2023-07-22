@@ -12,6 +12,7 @@ import {
   Input,
   ModalFooter,
   Icon,
+  Textarea,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -63,7 +64,7 @@ const NewProductModal = () => {
 
             <FormControl mt={4}>
               <FormLabel>Description</FormLabel>
-              <Input placeholder="description" />
+              <Textarea placeholder="description..." />
             </FormControl>
           </ModalBody>
 
