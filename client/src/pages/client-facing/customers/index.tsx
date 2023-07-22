@@ -36,7 +36,7 @@ interface customerType {
 const Customers = () => {
   return (
     <Box>
-      <PageHeader title="Customers" subtitle="See list of your customers" />
+      <PageHeader title="Customers" subtitle="See a list of your customers" />
       <Button
         leftIcon={<Icon as={AiFillPlusCircle} />}
         colorScheme="pink"

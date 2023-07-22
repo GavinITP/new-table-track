@@ -4,7 +4,10 @@ import PageHeader from "../../../components/PageHeader";
 const Management = () => {
   return (
     <Box>
-      <PageHeader title={"Management"} subtitle={"adsfasdfasdasdfas"} />
+      <PageHeader
+        title="Stocks Management"
+        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, nisi"
+      />
     </Box>
   );
 };

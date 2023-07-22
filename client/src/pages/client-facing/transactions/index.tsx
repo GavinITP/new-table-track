@@ -37,7 +37,7 @@ const Customers = () => {
     <Box>
       <PageHeader
         title="Transactions"
-        subtitle="See your latest restaurant transactions history"
+        subtitle="See your latest restaurant transaction history."
       />
 
       <Button

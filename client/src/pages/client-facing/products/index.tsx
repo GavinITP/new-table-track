@@ -32,7 +32,7 @@ const Products = () => {
     <Box>
       <PageHeader
         title="Products"
-        subtitle="Here is a complete list of all the food items your restaurant offers."
+        subtitle="Here is a complete list of all the food items your restaurant offers"
       />
       <NewProductModal />
       <Menu>

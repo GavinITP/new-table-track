@@ -13,7 +13,7 @@ const Dashboard = () => {
     <Box>
       <PageHeader
         title="Dashboard"
-        subtitle="Take a quick look for your restaurant stat today."
+        subtitle="Take a quick look at your restaurant stats today"
       />
 
       <Grid
@@ -87,7 +87,7 @@ const Dashboard = () => {
         <GridItem>
           <Heading fontSize="3xl">Income sources</Heading>
           <Text color="gray.500" mt={6}>
-            Describe income sources from online and onsite
+            Describe income sources from online and onsite sources
           </Text>
 
           <IncomeSourcesChart />
