@@ -63,6 +63,11 @@ const NewProductModal = () => {
             </FormControl>
 
             <FormControl mt={4}>
+              <FormLabel>Image link</FormLabel>
+              <Input placeholder="Ex. https://yourimage.com/" />
+            </FormControl>
+
+            <FormControl mt={4}>
               <FormLabel>Description</FormLabel>
               <Textarea placeholder="description..." />
             </FormControl>
