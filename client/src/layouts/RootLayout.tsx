@@ -38,7 +38,7 @@ const RootLayout = () => {
         <Box
           position={sidebarOpen ? "static" : "absolute"}
           left={sidebarOpen ? "0" : "-250px"}
-          transition="left 0.1s ease-in-out"
+          transition="all 0.3s ease-in-out"
           zIndex={100}
         >
           <Sidebar />
@@ -46,7 +46,7 @@ const RootLayout = () => {
         <Box
           flexGrow={1}
           ml={sidebarOpen ? "250px" : "0"}
-          transition="margin 0.3s ease-in-out"
+          transition="all 0.2s ease-in-out"
         >
           <Navbar setSidebarOpen={setSidebarOpen} />
           <Container maxW="6xl">
