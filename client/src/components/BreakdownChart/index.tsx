@@ -3,11 +3,11 @@ import { Box, Text } from "@chakra-ui/react";
 
 const BreakdownChart = () => {
   const formattedData = [
-    { category: "Curry", sales: 1500 },
-    { category: "Noodles", sales: 2200 },
-    { category: "Soups", sales: 1800 },
-    { category: "Dessert", sales: 1200 },
-    { category: "Beverage", sales: 2800 },
+    { category: "Curry", sales: 15000 },
+    { category: "Noodles", sales: 12000 },
+    { category: "Soups", sales: 8000 },
+    { category: "Dessert", sales: 5000 },
+    { category: "Beverage", sales: 4000 },
   ];
 
   return (

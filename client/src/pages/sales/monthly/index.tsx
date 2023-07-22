@@ -1,26 +1,17 @@
 import { useMemo } from "react";
 import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
-import { ResponsiveLine } from "@nivo/line";
+import { ResponsiveLine, Serie } from "@nivo/line";
 import { useGetSalesQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
 
+interface MonthlyData {
+  month: string;
+  totalSales: number;
+  totalUnits: number;
+}
+
 const Monthly = () => {
   const { data, isLoading } = useGetSalesQuery("");
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
 
   const [formattedData] = useMemo(() => {
     if (!data) return [];
@@ -29,24 +20,26 @@ const Monthly = () => {
     const totalSalesLine = {
       id: "totalSales",
       color: "#123412",
-      data: [],
+      data: [] as { x: string; y: number }[],
     };
     const totalUnitsLine = {
       id: "totalUnits",
       color: "#234323",
-      data: [],
+      data: [] as { x: string; y: number }[],
     };
 
-    Object.values(monthlyData).forEach(({ month, totalSales, totalUnits }) => {
-      totalSalesLine.data = [
-        ...totalSalesLine.data,
-        { x: month, y: totalSales },
-      ];
-      totalUnitsLine.data = [
-        ...totalUnitsLine.data,
-        { x: month, y: totalUnits },
-      ];
-    });
+    Object.values<MonthlyData>(monthlyData).forEach(
+      ({ month, totalSales, totalUnits }) => {
+        totalSalesLine.data = [
+          ...totalSalesLine.data,
+          { x: month, y: totalSales },
+        ];
+        totalUnitsLine.data = [
+          ...totalUnitsLine.data,
+          { x: month, y: totalUnits },
+        ];
+      }
+    );
 
     const formattedData = [totalSalesLine, totalUnitsLine];
     return [formattedData];
@@ -84,11 +77,10 @@ const Monthly = () => {
 
       <Box h="500px">
         <ResponsiveLine
-          data={formattedData}
+          data={formattedData as Serie[]}
           margin={{ top: 20, right: 60, bottom: 50, left: 80 }}
           xScale={{
             type: "point",
-            values: months,
           }}
           yScale={{
             type: "linear",

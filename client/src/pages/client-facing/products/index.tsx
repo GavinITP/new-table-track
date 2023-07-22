@@ -26,7 +26,7 @@ interface ProductType {
 }
 
 const Products = () => {
-  const [products, SetProducts] = useState<ProductType[]>(dataProduct);
+  const [products] = useState<ProductType[]>(dataProduct);
 
   return (
     <Box>
