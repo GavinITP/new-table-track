@@ -1,7 +1,19 @@
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Flex,
+  Heading,
+  Icon,
+  Image,
+} from "@chakra-ui/react";
 import PageHeader from "../../../components/PageHeader";
 import FeatureSection from "../../../components/FeatureSection";
-import qrImg from "../../../assets/img/qr-explain.png";
+import qrImgExplain from "../../../assets/img/qr-explain.png";
+import QrStep from "../../../components/QrStep";
+import QrImg from "../../../assets/img/qr-code.png";
+import { MdOutlineReplay } from "react-icons/md";
+import { BsFillPrinterFill } from "react-icons/bs";
 
 const QrGenerator = () => {
   return (
@@ -22,29 +34,60 @@ const QrGenerator = () => {
         </Heading>
 
         <Image
-          src={qrImg}
+          src={qrImgExplain}
           maxH="500px"
           mx="auto"
           borderRadius="2xl"
           mt={6}
           shadow="xl"
-          transition="transform 0.2s ease-in-out" // Add a transition for smooth scaling
+          transition="transform 0.2s ease-in-out"
           _hover={{
-            transform: "scale(1.02)", // Apply scale on hover
+            transform: "scale(1.02)",
           }}
         />
       </Box>
 
-      <Box mt={20}>
+      <Box my={20}>
         <Heading fontSize="2xl">
           All you need are just{" "}
           <Box color="pink.500" display="inline-block" fontSize="5xl" ml={2}>
             3 steps.
           </Box>
         </Heading>
-
-        <Text></Text>
       </Box>
+
+      <Box mx={50}>
+        <QrStep />
+      </Box>
+
+      <Image
+        src={QrImg}
+        h={"300px"}
+        mx="auto"
+        mt={12}
+        shadow="2xl"
+        transition="transform 0.2s ease-in-out"
+        _hover={{
+          transform: "scale(1.02)",
+        }}
+      />
+
+      <Flex gap={6} justifyContent="center" my={10}>
+        <Button
+          rightIcon={<Icon as={MdOutlineReplay} />}
+          colorScheme="pink"
+          variant="outline"
+        >
+          Generate
+        </Button>
+        <Button
+          rightIcon={<Icon as={BsFillPrinterFill} />}
+          colorScheme="pink"
+          variant="solid"
+        >
+          Print
+        </Button>
+      </Flex>
     </Box>
   );
 };

@@ -1,8 +1,7 @@
 import { ReactElement } from "react";
 import { Box, SimpleGrid, Icon, Text, Stack, Flex } from "@chakra-ui/react";
-import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
-import { BiSolidNetworkChart } from "react-icons/bi";
-import { MdAutoMode, MdPayments } from "react-icons/md";
+
+import { MdAutoMode, MdPayments, MdFastfood } from "react-icons/md";
 
 interface FeatureProps {
   title: string;
@@ -37,7 +36,7 @@ export default function SimpleThreeColumns() {
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
         <Feature
           icon={
-            <Icon as={BiSolidNetworkChart} color="pink.500" w={10} h={10} />
+            <Icon as={MdFastfood} color="pink.500" w={10} h={10} boxSize={8} />
           }
           title={"Food order system"}
           text={
@@ -45,14 +44,18 @@ export default function SimpleThreeColumns() {
           }
         />
         <Feature
-          icon={<Icon as={MdPayments} color="pink.500" w={10} h={10} />}
+          icon={
+            <Icon as={MdPayments} color="pink.500" w={10} h={10} boxSize={8} />
+          }
           title={"Payment system"}
           text={
             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
           }
         />
         <Feature
-          icon={<Icon as={MdAutoMode} color="pink.500" w={10} h={10} />}
+          icon={
+            <Icon as={MdAutoMode} color="pink.500" w={10} h={10} boxSize={8} />
+          }
           title={"Automatic data system"}
           text={
             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
