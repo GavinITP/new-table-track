@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Flex,
-  Heading,
-  Icon,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, Image } from "@chakra-ui/react";
 import PageHeader from "../../../components/PageHeader";
 import FeatureSection from "../../../components/FeatureSection";
 import qrImgExplain from "../../../assets/img/qr-explain.png";
