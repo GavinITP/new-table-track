@@ -1,73 +1,49 @@
-import { ResponsivePie } from "@nivo/pie";
-import { Box, Spinner, Text } from "@chakra-ui/react";
-import { useGetSalesQuery } from "../../state/api";
+import { ResponsiveBar } from "@nivo/bar";
+import { Box, Text } from "@chakra-ui/react";
 
 const BreakdownChart = () => {
-  const { data, isLoading } = useGetSalesQuery("");
-
-  if (!data || isLoading)
-    return (
-      <Spinner
-        thickness="4px"
-        speed="0.3s"
-        emptyColor="gray.200"
-        color="blue.500"
-        size="xl"
-        position="fixed"
-        left="50%"
-        top="50%"
-      />
-    );
-
-  const formattedData = Object.entries(data.salesByCategory).map(
-    ([category, sales]) => ({
-      id: category,
-      label: category,
-      value: sales,
-      color: "#123422",
-    })
-  );
+  const formattedData = [
+    { category: "Curry", sales: 1500 },
+    { category: "Noodles", sales: 2200 },
+    { category: "Soups", sales: 1800 },
+    { category: "Dessert", sales: 1200 },
+    { category: "Beverage", sales: 2800 },
+  ];
 
   return (
     <Box h="500px">
-      <ResponsivePie
+      <ResponsiveBar
         data={formattedData}
+        keys={["sales"]}
+        indexBy="category"
         colors={{ scheme: "pastel1" }}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
-        innerRadius={0.5}
-        padAngle={0.7}
-        cornerRadius={3}
-        borderWidth={1}
-        borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
-        legends={[
-          {
-            anchor: "bottom",
-            direction: "row",
-            justify: false,
-            translateX: 0,
-            translateY: 56,
-            itemsSpacing: 0,
-            itemWidth: 100,
-            itemHeight: 18,
-            itemTextColor: "#999",
-            itemDirection: "left-to-right",
-            itemOpacity: 1,
-            symbolSize: 18,
-            symbolShape: "circle",
-            effects: [
-              {
-                on: "hover",
-                style: {
-                  itemTextColor: "#000",
-                },
-              },
-            ],
-          },
-        ]}
+        padding={0.3}
+        axisBottom={{
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: "Food and Drink",
+          legendPosition: "middle",
+          legendOffset: 40,
+        }}
+        axisLeft={{
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: "Sales (Baht)",
+          legendPosition: "middle",
+          legendOffset: -60,
+        }}
+        labelSkipWidth={12}
+        labelSkipHeight={12}
+        labelTextColor={{ from: "color", modifiers: [["darker", 1.6]] }}
+        animate={true}
       />
 
       <Text textAlign="center" fontSize="xl" my={8} fontWeight="bold">
-        {"Total:"} {data.yearlySalesTotal} Baht
+        Total: {formattedData.reduce((total, item) => total + item.sales, 0)}{" "}
+        Baht
       </Text>
     </Box>
   );

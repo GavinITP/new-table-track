@@ -1,4 +1,6 @@
+import { Grid } from "@chakra-ui/react";
 import BreakdownChart from "../../../components/BreakdownChart";
+import IncomeSourcesChart from "../../../components/IncomeSourcesChart";
 import PageHeader from "../../../components/PageHeader";
 
 const Breakdown = () => {
@@ -8,8 +10,10 @@ const Breakdown = () => {
         title="Breakdown"
         subtitle="See where your income come from"
       />
-
-      <BreakdownChart />
+      <Grid templateColumns={{ base: "1fr", lg: "40% 60%" }}>
+        <IncomeSourcesChart />
+        <BreakdownChart />
+      </Grid>
     </div>
   );
 };
