@@ -40,7 +40,7 @@ export default function SimpleThreeColumns() {
           }
           title={"Food order system"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "We provide a food order app system that includes your menu order automatically from TableTrack, so you don't have to set it up yourself."
           }
         />
         <Feature
@@ -49,7 +49,7 @@ export default function SimpleThreeColumns() {
           }
           title={"Payment system"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "We already include the most common payment systems, like Promptpay, in our QR code. so you will receive transaction data automatically."
           }
         />
         <Feature
@@ -58,7 +58,7 @@ export default function SimpleThreeColumns() {
           }
           title={"Automatic data system"}
           text={
-            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore..."
+            "TableTrack receives customer data automatically, so all you need to do is insert your restaurant data the first time, and we will provide analytic for you."
           }
         />
       </SimpleGrid>
