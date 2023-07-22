@@ -20,6 +20,7 @@ import { BiSolidFileExport } from "react-icons/bi";
 
 import { dataUser } from "../../../fakeData/customerData";
 import { BsFillAwardFill } from "react-icons/bs";
+import { FaSyncAlt } from "react-icons/fa";
 
 interface customerType {
   _id: string;
@@ -45,6 +46,17 @@ const Customers = () => {
       >
         Add new customer
       </Button>
+
+      <Button
+        leftIcon={<Icon as={FaSyncAlt} />}
+        colorScheme="pink"
+        variant="outline"
+        my={8}
+        mr={4}
+      >
+        Sync
+      </Button>
+
       <Button
         rightIcon={<Icon as={BiSolidFileExport} />}
         variant="solid"
