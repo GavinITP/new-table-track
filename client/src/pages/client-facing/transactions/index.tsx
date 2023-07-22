@@ -19,6 +19,7 @@ import {
   PopoverHeader,
   PopoverTrigger,
   Flex,
+  Spinner,
 } from "@chakra-ui/react";
 import { useGetTransactionsQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
@@ -58,7 +59,16 @@ const Customers = () => {
       </Button>
 
       {isLoading ? (
-        <Text>loading...</Text>
+        <Spinner
+          thickness="4px"
+          speed="0.3s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+          position="fixed"
+          top="50%"
+          left="50%"
+        />
       ) : (
         <TableContainer borderRadius="xl" shadow="xl">
           <Table variant="simple" colorScheme="gray">

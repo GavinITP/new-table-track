@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Spinner, Text } from "@chakra-ui/react";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
@@ -52,7 +52,19 @@ const Monthly = () => {
     return [formattedData];
   }, [data]);
 
-  if (isLoading) return "Loading...";
+  if (isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.3s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+        position="fixed"
+        left="50%"
+        top="50%"
+      />
+    );
 
   return (
     <Box>

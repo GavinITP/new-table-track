@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Box, Flex, Icon, Text } from "@chakra-ui/react";
+import { Box, Flex, Icon, Spinner, Text } from "@chakra-ui/react";
 import { ResponsiveLine, Serie } from "@nivo/line";
 import { useGetSalesQuery } from "../../../state/api";
 import PageHeader from "../../../components/PageHeader";
@@ -50,7 +50,19 @@ const Daily = () => {
     return [formattedData];
   }, [data, startDate, endDate]);
 
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.3s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+        position="fixed"
+        left="50%"
+        top="50%"
+      />
+    );
 
   return (
     <Box>

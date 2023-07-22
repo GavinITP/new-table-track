@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { useGetSalesQuery } from "../../state/api";
-import { Box } from "@chakra-ui/react";
+import { Box, Spinner } from "@chakra-ui/react";
 
 interface Serie {
   id: string;
@@ -40,7 +40,19 @@ const OverviewChart = ({ view }: { view: string }) => {
     return [[totalSalesLine], [totalUnitsLine]];
   }, [data]);
 
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.3s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+        position="fixed"
+        left="50%"
+        top="50%"
+      />
+    );
 
   return (
     <Box h="500px">

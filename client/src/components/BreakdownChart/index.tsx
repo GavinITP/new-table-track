@@ -1,11 +1,23 @@
 import { ResponsivePie } from "@nivo/pie";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Spinner, Text } from "@chakra-ui/react";
 import { useGetSalesQuery } from "../../state/api";
 
 const BreakdownChart = () => {
   const { data, isLoading } = useGetSalesQuery("");
 
-  if (!data || isLoading) return "Loading...";
+  if (!data || isLoading)
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.3s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+        position="fixed"
+        left="50%"
+        top="50%"
+      />
+    );
 
   const formattedData = Object.entries(data.salesByCategory).map(
     ([category, sales]) => ({
