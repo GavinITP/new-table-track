@@ -7,22 +7,35 @@ import {
   Td,
   TableContainer,
   Box,
-  Text,
   Button,
   Icon,
+  Flex,
+  Badge,
+  Text,
 } from "@chakra-ui/react";
-import { useGetCustomersQuery } from "../../../state/api";
+
 import PageHeader from "../../../components/PageHeader";
-import { AiFillPlusCircle } from "react-icons/ai";
+import { AiFillInfoCircle, AiFillPlusCircle } from "react-icons/ai";
 import { BiSolidFileExport } from "react-icons/bi";
 
-const Customers = () => {
-  const { data, isLoading } = useGetCustomersQuery("");
+import { dataUser } from "../../../fakeData/customerData";
+import { BsFillAwardFill } from "react-icons/bs";
 
+interface customerType {
+  _id: string;
+  username: string;
+  email: string;
+  location: string;
+  phoneNumber: string;
+  visits: number;
+  gender: string;
+  ages: number;
+}
+
+const Customers = () => {
   return (
     <Box>
       <PageHeader title="Customers" subtitle="See list of your customers" />
-
       <Button
         leftIcon={<Icon as={AiFillPlusCircle} />}
         colorScheme="pink"
@@ -32,7 +45,6 @@ const Customers = () => {
       >
         Add new customer
       </Button>
-
       <Button
         rightIcon={<Icon as={BiSolidFileExport} />}
         variant="solid"
@@ -41,33 +53,49 @@ const Customers = () => {
       >
         Export
       </Button>
-
-      {isLoading ? (
-        <Text>loading...</Text>
-      ) : (
-        <TableContainer borderRadius="xl" shadow="xl">
-          <Table variant="simple" colorScheme="gray">
-            <Thead>
-              <Tr bgColor="pink.500">
-                <Th color="white">Name</Th>
-                <Th color="white">Email</Th>
-                <Th color="white">Tel.</Th>
-                <Th color="white">Occupation</Th>
+      <TableContainer borderRadius="xl" shadow="xl">
+        <Table variant="simple" colorScheme="gray">
+          <Thead>
+            <Tr bgColor="pink.500">
+              <Th color="white">Username</Th>
+              <Th color="white">Email</Th>
+              <Th color="white">Tel.</Th>
+              <Th color="white">Gender</Th>
+              <Th color="white">Ages</Th>
+              <Th color="white">Visits</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {dataUser.map((customer: customerType) => (
+              <Tr>
+                <Td>
+                  <Flex alignItems="center" gap={2}>
+                    <Icon as={AiFillInfoCircle} color="gray.400" />
+                    <Box>{customer.username}</Box>
+                  </Flex>
+                </Td>
+                <Td>{customer.email}</Td>
+                <Td>{customer.phoneNumber}</Td>
+                <Td>{customer.gender}</Td>
+                <Td>{customer.ages}</Td>
+                <Td>
+                  <Flex gap={1}>
+                    {customer.visits >= 5 ? (
+                      <Icon as={BsFillAwardFill} color="yellow.400" />
+                    ) : (
+                      <Icon as={BsFillAwardFill} color="gray.500" />
+                    )}
+                    <Text fontWeight="bold">{customer.visits}</Text>
+                    {customer.visits === 1 && (
+                      <Badge colorScheme="green">NEW</Badge>
+                    )}
+                  </Flex>
+                </Td>
               </Tr>
-            </Thead>
-            <Tbody>
-              {data.map((customer: any) => (
-                <Tr>
-                  <Td>{customer.name}</Td>
-                  <Td>{customer.email}</Td>
-                  <Td>+{customer.phoneNumber}</Td>
-                  <Td>{customer.occupation}</Td>
-                </Tr>
-              ))}
-            </Tbody>
-          </Table>
-        </TableContainer>
-      )}
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 };
