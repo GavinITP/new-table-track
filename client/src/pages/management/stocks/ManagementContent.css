@@ -1,0 +1,9 @@
+.header{
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid #333;
+}
+.item{
+    border: 1px solid #333;
+    padding: 5px 10px;
+}
