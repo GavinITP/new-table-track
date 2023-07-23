@@ -12,7 +12,6 @@ import {
   Input,
   ModalFooter,
   Icon,
-  Textarea,
   Select,
   NumberDecrementStepper,
   NumberIncrementStepper,

@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import PageHeader from "../../../components/PageHeader";
-import { AiFillInfoCircle, AiFillPlusCircle } from "react-icons/ai";
+import { AiFillInfoCircle } from "react-icons/ai";
 import { BiSolidFileExport } from "react-icons/bi";
 
 import { dataUser } from "../../../fakeData/customerData";
