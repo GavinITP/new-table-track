@@ -187,7 +187,7 @@ const Stocks = () => {
         mr={4}
         onClick={onOpen}
       >
-        Add new product
+        Add new stock
       </Button>
 
       <TableContainer
