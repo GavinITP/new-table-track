@@ -48,7 +48,7 @@ const QrGenerator = () => {
         </Heading>
       </Box>
 
-      <Box mx={50}>
+      <Box mx={{ base: 30, md: 50 }}>
         <QrStep />
       </Box>
 
