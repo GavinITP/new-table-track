@@ -21,6 +21,7 @@ import { BiSolidFileExport } from "react-icons/bi";
 import { dataUser } from "../../../fakeData/customerData";
 import { BsFillAwardFill } from "react-icons/bs";
 import { FaSyncAlt } from "react-icons/fa";
+import NewCustomerModal from "../../../components/NewCustomerModal";
 
 interface customerType {
   _id: string;
@@ -37,15 +38,8 @@ const Customers = () => {
   return (
     <Box>
       <PageHeader title="Customers" subtitle="See a list of your customers" />
-      <Button
-        leftIcon={<Icon as={AiFillPlusCircle} />}
-        colorScheme="pink"
-        variant="solid"
-        my={8}
-        mr={4}
-      >
-        Add new customer
-      </Button>
+
+      <NewCustomerModal />
 
       <Button
         leftIcon={<Icon as={FaSyncAlt} />}
